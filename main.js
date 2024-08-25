@@ -100,7 +100,7 @@ function test_main() {
             document.getElementById("leek").style.display="block"
             skoor = skoor - 100
             updateText("skoor", `skoor: ${skoor}`)
-            setTimeout(test_main, 1000);
+            setTimeout(test_main, 5000);
         }
     }
 }
