@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>tiitel</title>
+        <meta charset="UTF-8"
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="./style.css"
+    </head>
+
+
+    <body>
+        <script src="./main.js" defer></script>
+
+        <!--start page-->
+        <div id="start_page">
+            <h1>fretboard õppimise asi</h1>
+            <br>
+            <br>
+            <h2 id="hoiatus">tapa ennast!!!</h2>
+            <button onclick="test_setup()">alusta</button>
+            <br>
+            <br>
+            <h3>keeled:</h3>
+            <div id="keeled_checkboxid">
+                <input type="checkbox" id="E" checked> <label for="E">E</label>
+                <input type="checkbox" id="A" checked> <label for="A">A</label>
+                <input type="checkbox" id="D" checked> <label for="D">D</label>
+                <input type="checkbox" id="G" checked> <label for="G">G</label>
+                <input type="checkbox" id="B" checked> <label for="B">B</label>
+                <input type="checkbox" id="e" checked> <label for="e">e</label>
+            </div>
+            <h3>noodid:</h3>
+            <div id="noodid_checkboxid"></div>
+            <input type="checkbox" id="noodid_naturaal" checked> <label for="noodid_naturaal">naturaalnoodid</label>
+            <input type="checkbox" id="noodid_sharp" unchecked> <label for="noodid_sharp">kõrgendatud noodid</label>
+        </div>
+
+        <div id ="test_ise">
+            <h2 id="suvakas">its testing time</h2>
+            <br>
+            <h3 id="skoor">skoor: 0</h3>
+            <img src="https://c.tenor.com/cR1Sq2tIHmsAAAAC/tenor.gif" id="leek">
+            <h2 id="prompt">prompt</h2>
+            
+            <div id="diagramm"></div>
+
+            <div id="nupud">
+                <div id="nupud_naturaal">
+                    <button onclick="check('A')" id="A_button">A</button>
+                    <button onclick="check('B')" id="B_button">B</button>
+                    <button onclick="check('C')">C</button>
+                    <button onclick="check('D')">D</button>
+                    <button onclick="check('E')">E</button>
+                    <button onclick="check('F')">F</button>
+                    <button onclick="check('G')">G</button>
+                </div>
+                <div id="nupud_sharp">
+                    <button onclick="check('A#')">A#</button>
+                    <button onclick="check('C#')">C#</button>
+                    <button onclick="check('D#')">D#</button>
+                    <button onclick="check('F#')">F#</button>
+                    <button onclick="check('G#')">G#</button>
+                </div>
+            </div>
+
+            <h2 id="tulemus">-_-</h2>
+            <br>
+            <button onclick="test_setup()">uus</button>
+            <button onclick="reload_function()">tagasi</button>
+        </div>
+    </body>
+</html>
