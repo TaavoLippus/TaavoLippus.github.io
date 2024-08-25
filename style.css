@@ -1,3 +1,10 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #start_page {
     display: block;
 }
@@ -8,8 +15,9 @@
 }
 
 #nupud {
-    display: block;
+    display: flex;
 }
+
 
 body.disabled {
     pointer-events: none;
@@ -30,4 +38,16 @@ body.disabled {
     /*object-fit: cover;*/
     display: none;
     z-index: 99999;
+}
+
+#nupud {
+    width: 75%;
+}
+
+.nupu-class {
+    background-color: red;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    font-size: large;
 }
