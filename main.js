@@ -5,12 +5,15 @@ const test_ise = document.getElementById("test_ise");
 const noodid_sharp = ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#"]
 const noodid_naturaal = ["E", "F", "G", "A", "B", "C", "D"]
 const noodid_ainult_sharp = ["F#", "G#", "A#", "C#", "D#"]
-const keeled = {"E":0, "A":5, "D":10, "G":15, "B":19, "e":24}
+/*const keeled = {"E":0, "A":5, "D":10, "G":15, "B":19, "e":24}*/
+const keeled = {'e':24, "B":19, "G":15, "D":10, "A":5, "E":0,}
+
 let noodid_lubatud = noodid_naturaal
 let keeled_lubatud = []
 
 let viimane_prompt = ""
 let skoor = 0
+let diagramm_laetud = false
 
 function updateText(element_id, newValue) {
     const outputElement = document.getElementById(element_id);
@@ -18,6 +21,12 @@ function updateText(element_id, newValue) {
 }
 
 function test_setup() {
+    console.log(diagramm_laetud)
+    if(diagramm_laetud==false){
+        fretboard_diagramm()
+    }
+
+
     keeled_lubatud = []
     skoor=0
     updateText("skoor", `skoor: ${skoor}`)
@@ -62,13 +71,6 @@ function test_main() {
     document.body.classList.remove('disabled');
     document.getElementById("leek").style.display="none"
 
-
-    /*nupud.querySelectorAll('*').forEach((nupp)=>{nupp.style.display='block'})
-    nupud.querySelectorAll('*').forEach((nupp)=>{
-        if (noodid_lubatud.includes(nupp.innerText)==false){
-            nupp.style.display="none"
-        }
-    });*/
     updateText("tulemus", "-_-")
 
     let keel_ja_fret=""
@@ -83,6 +85,15 @@ function test_main() {
         keel_ja_fret = `${suvaline_keel}${suvaline_fret}`;
     }
     updateText("prompt", keel_ja_fret);
+    let keel_ja_fret_div = document.getElementById(keel_ja_fret)
+    keel_ja_fret_div.style.backgroundColor='red'
+
+    let viimane_keel_ja_fret_div = document.getElementById(viimane_prompt)
+    if(viimane_keel_ja_fret_div){
+        viimane_keel_ja_fret_div.removeAttribute('style')
+    }
+
+
     viimane_prompt = keel_ja_fret
     console.log(`viimane prompt oli ${viimane_prompt}`)
 
@@ -108,4 +119,44 @@ function test_main() {
 function reload_function() {
     start_page.style.display="block";
     test_ise.style.display="none";
+    diagramm_laetud=true
+}
+
+function fretboard_diagramm() {
+    const fretboard = document.getElementById("fretboard")
+    const keele_nimed_div = document.getElementById('keele_nimed_div')
+    const keelte_arv = 6
+    const fretide_arv = 12
+
+
+    for (let freti_number = 1; freti_number <= fretide_arv; freti_number++) {
+        const freti_number_div = document.createElement('div')
+        freti_number_div.className = 'freti_number'
+        freti_number_div.innerText=`${freti_number}`
+        freti_numbrid_div.appendChild(freti_number_div)
+    }
+    
+    for(let keel = 1; keel <= keelte_arv; keel++){
+
+        const keele_nimi_div = document.createElement('div')
+        keele_nimi_div.innerText=`${Object.keys(keeled)[keel-1]}`
+        keele_nimi_div.className="keele_nimi"
+        keele_nimed_div.appendChild(keele_nimi_div)
+
+        const keel_div = document.createElement('div');
+        keel_div.className='keel'
+        keel_div.dataset.keel = keel;
+
+        for (let fret = 1; fret <= fretide_arv; fret++) {
+            console.log(`${Object.keys(keeled)[keel-1]}${fret}`)
+            const fret_div = document.createElement('div')
+            fret_div.className = 'fret'
+            fret_div.dataset.fret = fret
+            fret_div.id=`${Object.keys(keeled)[keel-1]}${fret}`
+            /*fret_div.innerText=`${fret_div.id}`*/
+            keel_div.appendChild(fret_div)
+        }
+
+        fretboard.appendChild(keel_div)
+    }
 }
