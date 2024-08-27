@@ -18,12 +18,8 @@
         <!--start page-->
         <div id="start_page">
             <h1>fretboard õppimise asi</h1>
-            <br>
-            <br>
             <h2 id="hoiatus">tapa ennast!!!</h2>
             <button onclick="test_setup()" class="nupu-class">alusta</button>
-            <br>
-            <br>
             <h3>keeled:</h3>
             <div id="keeled_checkboxid">
                 <input type="checkbox" id="E" checked> <label for="E">E</label>
@@ -41,7 +37,6 @@
 
         <div id ="test_ise">
             <h2 id="suvakas">its testing time</h2>
-            <br>
             <h3 id="skoor">skoor: 0</h3>
             <img src="https://c.tenor.com/cR1Sq2tIHmsAAAAC/tenor.gif" id="leek">
             <h2 id="prompt">prompt</h2>
@@ -57,28 +52,26 @@
             </div>
 
             <div id="nupud">
-                <div id="nupud_naturaal">
-                    <button onclick="check('A')" id="A_button" class="nupu-class">A</button>
-                    <button onclick="check('B')" id="B_button" class="nupu-class">B</button>
-                    <button onclick="check('C')" class="nupu-class">C</button>
-                    <button onclick="check('D')" class="nupu-class">D</button>
-                    <button onclick="check('E')" class="nupu-class">E</button>
-                    <button onclick="check('F')" class="nupu-class">F</button>
-                    <button onclick="check('G')" class="nupu-class">G</button>
-                </div>
-                <div id="nupud_sharp">
-                    <button onclick="check('A#')" class="nupu-class">A#</button>
-                    <button onclick="check('C#')" class="nupu-class">C#</button>
-                    <button onclick="check('D#')" class="nupu-class">D#</button>
-                    <button onclick="check('F#')" class="nupu-class">F#</button>
-                    <button onclick="check('G#')" class="nupu-class">G#</button>
-                </div>
+                    <button onclick="check('B')" id="B_button" class="nupu-class-naturaal">B</button>
+                    <button onclick="check('E')" id="E_button"class="nupu-class-naturaal">E</button>
+                    <button onclick="check('A')" id="A_button" class="nupu-class-naturaal">A</button>
+                    <button onclick="check('D')" id="D_button" class="nupu-class-naturaal">D</button>
+                    <button onclick="check('G')" id="G_button" class="nupu-class-naturaal">G</button>
+                    <button onclick="check('C')" id="C_button" class="nupu-class-naturaal">C</button>
+                    <button onclick="check('F')" id="F_button" class="nupu-class-naturaal">F</button>
+
+                    <button onclick="check('A#')" id="A#_button" class="nupu-class-sharp">A#</button>
+                    <button onclick="check('C#')" id="C#_button" class="nupu-class-sharp">C#</button>
+                    <button onclick="check('D#')" id="D#_button" class="nupu-class-sharp">D#</button>
+                    <button onclick="check('F#')" id="F#_button" class="nupu-class-sharp">F#</button>
+                    <button onclick="check('G#')" id="G#_button" class="nupu-class-sharp">G#</button>
             </div>
 
             <h2 id="tulemus">-_-</h2>
-            <br>
-            <button onclick="test_setup()">uus</button>
-            <button onclick="reload_function()">tagasi</button>
+            <div id="suvalised_nupud">
+                <button onclick="test_setup()" class="nupu-class">uus</button>
+                <button onclick="reload_function()" class="nupu-class">tagasi</button>    
+            </div>
         </div>
     </body>
 </html>

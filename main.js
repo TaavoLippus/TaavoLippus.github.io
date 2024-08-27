@@ -21,11 +21,10 @@ function updateText(element_id, newValue) {
 }
 
 function test_setup() {
-    console.log(diagramm_laetud)
+
     if(diagramm_laetud==false){
         fretboard_diagramm()
     }
-
 
     keeled_lubatud = []
     skoor=0
@@ -38,30 +37,39 @@ function test_setup() {
     })
 
     noodid_lubatud = []
+
+    nupud.querySelectorAll('*').forEach((nupp)=>{
+        nupp.style.display="none"
+        if (document.getElementById('noodid_naturaal').checked == true){
+            if (nupp.className=='nupu-class-naturaal'){
+                nupp.style.display="flex"
+            }
+        }
+        if (document.getElementById('noodid_sharp').checked == true){
+            if (nupp.className=='nupu-class-sharp'){
+                nupp.style.display="flex"
+            }
+        }
+    })
+
     if (document.getElementById('noodid_naturaal').checked == true){
         noodid_lubatud = noodid_naturaal
-        document.getElementById('nupud_naturaal').style.display='block'
-        document.getElementById('nupud_sharp').style.display='none'
     }
     if (document.getElementById('noodid_sharp').checked == true && document.getElementById('noodid_naturaal').checked == true){
         noodid_lubatud = noodid_sharp
-        document.getElementById('nupud_naturaal').style.display='block'
-        document.getElementById('nupud_sharp').style.display='block'
-
     }
     if (document.getElementById('noodid_sharp').checked == true && document.getElementById('noodid_naturaal').checked == false){
         noodid_lubatud = noodid_ainult_sharp
-        document.getElementById('nupud_sharp').style.display='block'
-        document.getElementById('nupud_naturaal').style.display='none'
-
     }
+
+    console.log(noodid_lubatud)
 
     if (keeled_lubatud.length < 1 || noodid_lubatud.length < 1){
         document.getElementById('hoiatus').style.display="block"
     }
     else {
         start_page.style.display="none";
-        test_ise.style.display="block";
+        test_ise.style.display="flex";
         test_main()
     }
 
@@ -93,25 +101,23 @@ function test_main() {
         viimane_keel_ja_fret_div.removeAttribute('style')
     }
 
-
     viimane_prompt = keel_ja_fret
     console.log(`viimane prompt oli ${viimane_prompt}`)
 
     window.check = function(guess) {
         if (guess == õige_noot_sharp) {
             updateText("tulemus", ":D");
-            //document.getElementById("leek").style.display="none"
             skoor += 100
             updateText("skoor", `skoor: ${skoor}`)
             console.log(skoor)
             document.body.classList.add('disabled');
-            setTimeout(test_main, 1000);
+            setTimeout(test_main, 500);
         } else {
             updateText("tulemus", "D:")
             document.getElementById("leek").style.display="block"
             skoor = skoor - 100
             updateText("skoor", `skoor: ${skoor}`)
-            setTimeout(test_main, 1000);
+            setTimeout(test_main, 500);
         }
     }
 }
@@ -148,7 +154,6 @@ function fretboard_diagramm() {
         keel_div.dataset.keel = keel;
 
         for (let fret = 1; fret <= fretide_arv; fret++) {
-            console.log(`${Object.keys(keeled)[keel-1]}${fret}`)
             const fret_div = document.createElement('div')
             fret_div.className = 'fret'
             fret_div.dataset.fret = fret
