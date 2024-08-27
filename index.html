@@ -11,23 +11,23 @@
         <link rel="stylesheet" href="./style.css"
     </head>
 
-
     <body>
         <script src="./main.js" defer></script>
 
         <!--start page-->
         <div id="start_page">
             <h1>fretboard õppimise asi</h1>
+            <h3 id="hai-skoor-main" class="suvakas">hai skoor:</h3>
             <h2 id="hoiatus">tapa ennast!!!</h2>
             <button onclick="test_setup()" class="nupu-class">alusta</button>
             <h3>keeled:</h3>
             <div id="keeled_checkboxid">
                 <input type="checkbox" id="E" checked> <label for="E">E</label>
-                <input type="checkbox" id="A" checked> <label for="A">A</label>
-                <input type="checkbox" id="D" checked> <label for="D">D</label>
-                <input type="checkbox" id="G" checked> <label for="G">G</label>
-                <input type="checkbox" id="B" checked> <label for="B">B</label>
-                <input type="checkbox" id="e" checked> <label for="e">e</label>
+                <input type="checkbox" id="A" unchecked> <label for="A">A</label>
+                <input type="checkbox" id="D" unchecked> <label for="D">D</label>
+                <input type="checkbox" id="G" unchecked> <label for="G">G</label>
+                <input type="checkbox" id="B" unchecked> <label for="B">B</label>
+                <input type="checkbox" id="e" unchecked> <label for="e">e</label>
             </div>
             <h3>noodid:</h3>
             <div id="noodid_checkboxid"></div>
@@ -36,29 +36,34 @@
         </div>
 
         <div id ="test_ise">
-            <h2 id="suvakas">its testing time</h2>
-            <h3 id="skoor">skoor: 0</h3>
-            <img src="https://c.tenor.com/cR1Sq2tIHmsAAAAC/tenor.gif" id="leek">
-            <h2 id="prompt">prompt</h2>
-            
-            <div id="diagramm" class="diagramm">
-                <div id="keele_nimed_div" class="keele_nimed">
-                    <div class="keele_nimi"></div>
-                </div>
-                <div id="fretboard" class="fretboard">
-                    <div id="keeled_div"></div>
-                    <div id="freti_numbrid_div" class="freti_numbrid"></div>
-                </div>
+            <!--<h2 id="suvakas">its testing time</h2>-->
+            <div id="info">
+                <h3 id="hai-skoor" class="skoor">hai skoor: 0</h3>
+                <h3 id="skoor" class="skoor">skoor: 0</h3>
+                <img src="https://c.tenor.com/cR1Sq2tIHmsAAAAC/tenor.gif" id="leek">
+                <h2 id="prompt" class="suvakas">prompt</h2>
             </div>
 
+            <div id="diagramm-konteiner">
+                <div id="diagramm" class="diagramm">
+                    <div id="keele_nimed_div" class="keele_nimed">
+                        <div id="tühi-div"></div>
+                    </div>
+                    <div id="fretboard" class="fretboard">
+                        <div id="keeled_div"></div>
+                        <div id="freti_numbrid_div" class="freti_numbrid"></div>
+                    </div>
+                </div>
+            </div>
+            
             <div id="nupud">
-                    <button onclick="check('B')" id="B_button" class="nupu-class-naturaal">B</button>
-                    <button onclick="check('E')" id="E_button"class="nupu-class-naturaal">E</button>
                     <button onclick="check('A')" id="A_button" class="nupu-class-naturaal">A</button>
-                    <button onclick="check('D')" id="D_button" class="nupu-class-naturaal">D</button>
-                    <button onclick="check('G')" id="G_button" class="nupu-class-naturaal">G</button>
+                    <button onclick="check('B')" id="B_button" class="nupu-class-naturaal">B</button>
                     <button onclick="check('C')" id="C_button" class="nupu-class-naturaal">C</button>
+                    <button onclick="check('D')" id="D_button" class="nupu-class-naturaal">D</button>
+                    <button onclick="check('E')" id="E_button" class="nupu-class-naturaal">E</button>
                     <button onclick="check('F')" id="F_button" class="nupu-class-naturaal">F</button>
+                    <button onclick="check('G')" id="G_button" class="nupu-class-naturaal">G</button>
 
                     <button onclick="check('A#')" id="A#_button" class="nupu-class-sharp">A#</button>
                     <button onclick="check('C#')" id="C#_button" class="nupu-class-sharp">C#</button>
@@ -67,7 +72,7 @@
                     <button onclick="check('G#')" id="G#_button" class="nupu-class-sharp">G#</button>
             </div>
 
-            <h2 id="tulemus">-_-</h2>
+            <h2 id="tulemus" class="suvakas">-_-</h2>
             <div id="suvalised_nupud">
                 <button onclick="test_setup()" class="nupu-class">uus</button>
                 <button onclick="reload_function()" class="nupu-class">tagasi</button>    

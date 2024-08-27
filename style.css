@@ -1,9 +1,9 @@
 
 html, body {
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
-    margin: 0;
+
     padding: 0;
 }
 
@@ -15,12 +15,16 @@ html, body {
 #test_ise {
     display: none;
     flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin-left: 15px;
+    margin-top: 30px;
 }
 
 #nupud {
     display: flex;
     flex-wrap:wrap;
-    width: 60%;
+    width: 65%;
     margin: 10;
 }
 
@@ -51,49 +55,60 @@ html, body {
     display: flex;
     border-bottom: 1px solid black;
     border-left: 1px solid black;
+    flex: 1;
 }
 
 .fret {
-    min-width: 50px;
-    min-height: 20px;
     border-right: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    flex: 1;
 }
 
 .fretboard {
     display: flex;
     flex-direction: column;
     margin-top: 2px;
+    flex: 1;
+    max-width: 90%;
+}
+
+#diagramm-konteiner{
+    height: 30%;
+    display: flex;
 }
 
 .diagramm {
     display: flex; 
     flex-direction: row;
     margin-bottom: 20px;
+    flex: 1;
+    min-width: 500px;
 }
 
 .keele_nimed{
     display: flex;
     flex-direction: column;
-    margin-top: 2px;
-    margin-bottom: 1px;
 }
 
 .keele_nimi {
     height: 20px;
     margin-right: 5px;
-    margin-bottom: 1px;
     display: flex;
     justify-content: right;
     align-items: center;
+    flex: 1;
+}
+
+#tühi-div{
+    height:24px;
 }
 
 .freti_numbrid{
     display: flex;
-    border-bottom: 1px solid black
+    border-bottom: 1px solid black;
 }
 
 .freti_number{
@@ -102,28 +117,19 @@ html, body {
     margin-right: 1px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex: 1;
 }
 
-#suvakas{
-    margin: 0;
-    padding: 0;
-}
-
-#skoor{
-    margin: 0;
-    padding: 0;
-}
-
-#prompt{
+.suvakas{
     margin: 10;
     padding: 0;
 }
 
-#tulemus{
-    margin: 20;
+.skoor{
+    margin: 0;
     padding: 0;
 }
+
 
 body.disabled {
     pointer-events: none;

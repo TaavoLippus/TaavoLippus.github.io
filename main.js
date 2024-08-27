@@ -13,7 +13,18 @@ let keeled_lubatud = []
 
 let viimane_prompt = ""
 let skoor = 0
+
+if(localStorage.getItem('hai_skoor_saved')==null){
+    localStorage.setItem('hai_skoor_saved', 0)
+}
+
+let hai_skoor = localStorage.getItem('hai_skoor_saved')
+
 let diagramm_laetud = false
+
+window.onload = function(){
+    updateText('hai-skoor-main', `hai skoor: ${hai_skoor}`)
+}
 
 function updateText(element_id, newValue) {
     const outputElement = document.getElementById(element_id);
@@ -108,16 +119,22 @@ function test_main() {
         if (guess == õige_noot_sharp) {
             updateText("tulemus", ":D");
             skoor += 100
+            if(skoor >= hai_skoor && skoor>0){
+                hai_skoor=skoor
+                updateText('hai-skoor', `hai skoor: ${hai_skoor}`)
+                localStorage.setItem('hai_skoor_saved', hai_skoor)
+                console.log(`saved:${localStorage.getItem('hai_skoor_saved')}`)
+            }
+            console.log(`hai_skoor on ${hai_skoor}`)
             updateText("skoor", `skoor: ${skoor}`)
-            console.log(skoor)
             document.body.classList.add('disabled');
             setTimeout(test_main, 500);
         } else {
-            updateText("tulemus", "D:")
+            updateText("tulemus", `D:  õige noot on ${õige_noot_sharp}`)
             document.getElementById("leek").style.display="block"
             skoor = skoor - 100
             updateText("skoor", `skoor: ${skoor}`)
-            setTimeout(test_main, 500);
+            setTimeout(test_main, 1000);
         }
     }
 }
@@ -126,6 +143,7 @@ function reload_function() {
     start_page.style.display="block";
     test_ise.style.display="none";
     diagramm_laetud=true
+    updateText('hai-skoor-main', `hai skoor: ${hai_skoor}`)
 }
 
 function fretboard_diagramm() {
@@ -133,7 +151,6 @@ function fretboard_diagramm() {
     const keele_nimed_div = document.getElementById('keele_nimed_div')
     const keelte_arv = 6
     const fretide_arv = 12
-
 
     for (let freti_number = 1; freti_number <= fretide_arv; freti_number++) {
         const freti_number_div = document.createElement('div')
